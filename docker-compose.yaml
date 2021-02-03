@@ -33,6 +33,7 @@ services:
     volumes:
       - kafka-storage:/var/run/docker.sock
       - kafka-storage:/var/lib/kafka
+      #
     networks:
       - kafka-network
     restart: always
