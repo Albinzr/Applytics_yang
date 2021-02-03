@@ -1,0 +1,30 @@
+name: Deploy
+on: [push]
+
+
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: copy production docker-compose file
+      uses: horochx/deploy-via-scp@master
+      with:
+        local: "docker-compose.yaml"
+        remote: "docker-compose.yaml"
+        host: 34.72.234.240
+        port: 22
+        user: git_bot
+        key: ${{ secrets.SERVER_PRIVATE_KEY }}
+        
+    - name: Execute SSH commmands on remote server
+      uses: JimCronqvist/action-ssh@master
+      with:
+        hosts: 'git_bot@34.71.171.144'
+        privateKey: ${{ secrets.SERVER_PRIVATE_KEY }}
+        command: sudo docker-compose build && sudo docker-compose up -d && sudo docker image prune -f 
