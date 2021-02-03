@@ -7,7 +7,7 @@ services:
     restart: always
     networks:
       - kafka-network
-    container_name: zookeeper-container
+    #container_name: zookeeper-containers
     # logging:
     #   driver: none
 
