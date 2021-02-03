@@ -1,0 +1,80 @@
+version: "3.7"
+services:
+
+# reader server to mongo
+  yang:
+    build:
+      context: .
+      dockerfile: yang.dockerfile
+    container_name: yang-container 
+    image: yang-image
+    networks:
+      - yinyang-network
+    
+
+#mongodb server
+  mongodb:
+    build:
+      context: .
+      dockerfile: mongodb.dockerfile
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_DATABASE: beacon
+    ports:
+      - 27017:27017
+    expose:
+    - "27017"
+    volumes:
+      - ./seed.js:/docker-entrypoint-initdb.d/seed.js:ro
+      - mongodb-storage:/data/db
+    networks:
+      - yinyang-network
+    container_name: mongo-container 
+
+
+
+#mongodb volume
+volumes:
+  mongodb-storage:
+    name: mongodb-storage
+
+#connection to external network
+networks:
+  yinyang-network:
+    external: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
