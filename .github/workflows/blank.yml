@@ -17,7 +17,7 @@ jobs:
       with:
         local: "docker-compose.yaml"
         remote: "docker-compose.yaml"
-        host: 34.72.234.240
+        host: 34.71.171.144
         port: 22
         user: git_bot
         key: ${{ secrets.SERVER_PRIVATE_KEY }}
