@@ -20,7 +20,7 @@ jobs:
         KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
       with:
         source: "docker-compose.yaml"
-        target: "/"
+        target: "kafka"
         
     - name: ssh to instance
       uses: appleboy/ssh-action@master
@@ -28,4 +28,4 @@ jobs:
         host: 34.71.171.144
         username: git_bot
         key: ${{ secrets.SERVER_PRIVATE_KEY }}
-        script: sudo docker-compose up -d --force-recreate && sudo docker image prune -f 
+        script: cd kafka && sudo docker-compose up -d --force-recreate && sudo docker image prune -f 
