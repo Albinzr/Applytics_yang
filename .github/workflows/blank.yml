@@ -15,8 +15,8 @@ jobs:
     - name: copy production docker-compose file
       uses: horochx/deploy-via-scp@master
       with:
-        local: "docker-compose.yml"
-        remote: "docker-compose.yml"
+        local: "docker-compose.yaml"
+        remote: "docker-compose.yaml"
         host: 34.72.234.240
         port: 22
         user: git_bot
