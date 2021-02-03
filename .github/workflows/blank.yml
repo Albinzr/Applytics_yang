@@ -16,7 +16,7 @@ jobs:
       uses: horochx/deploy-via-scp@master
       with:
         local: "docker-compose.yaml"
-        remote: "docker-compose.yaml"
+        remote: "/"
         host: 34.71.171.144
         port: 22
         user: git_bot
