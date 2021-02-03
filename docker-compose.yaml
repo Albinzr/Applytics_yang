@@ -36,7 +36,7 @@ services:
     networks:
       - kafka-network
     restart: always
-    container_name: kafka-container
+    # container_name: kafka-container
     # logging:
     #   driver: none
 
