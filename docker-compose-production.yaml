@@ -3,18 +3,21 @@ services:
 
 # reader server to mongo
   yang:
-    build:
-      context: .
-      dockerfile: yang.dockerfile
+    image: gcr.io/applytics-303318/yang-image:latest
     container_name: yang-container 
-    image: yang-image
     networks:
       - yang-network
-    
+
 networks:
   yang-network:
     driver: bridge
     name: yang-network
+
+
+
+
+
+
 
 
 
