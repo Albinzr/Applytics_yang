@@ -47,7 +47,6 @@ jobs:
         source: "docker-compose-production.yaml"
         target: "yang"
 
-
     - name: ssh to instance
       uses: appleboy/ssh-action@master
       with:
