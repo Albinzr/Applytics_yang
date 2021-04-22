@@ -8,13 +8,13 @@ services:
       dockerfile: yang.dockerfile
     container_name: yang-container 
     image: yang-image
-    networks:
-      - yang-network
+#     networks:
+#       - yang-network
     
-networks:
-  yang-network:
-    driver: bridge
-    name: yang-network
+# networks:
+#   yang-network:
+#     driver: bridge
+#     name: yang-network
 
 
 
