@@ -5,6 +5,7 @@ services:
   yang:
     image: gcr.io/wise-hub-311308/yang-image:latest
     container_name: yang-container 
+    
 #     networks:
 #       - yang-network
 
